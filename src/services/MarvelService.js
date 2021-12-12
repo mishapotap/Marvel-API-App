@@ -9,7 +9,7 @@ class MarvelService {
         if (!result.ok) {
             throw new Error(`Couldn't fetch ${url}, status: ${result.status}`);
         }
-        return await result.json(); // Transform result to .json
+        return await result.json(); // Returns a Promise. Transform result from .json to JS
     };
     getAllCharacters = () => {
         return this.getData(`${this._apiBase}characters?limit=9&offset=210&${this._apiKey}`);
