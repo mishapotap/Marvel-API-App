@@ -14,9 +14,9 @@ class MarvelService {
 
     getAllCharacters = async () => {
         const res = await this.getData(
-            `${this._apiBase}characters?limit=9&offset=210&${this._apiKey}`
+            `${this._apiBase}characters?limit=9&offset=140&${this._apiKey}`
         );
-        return res.data.results.map((item) => this._transformCharacter(item)); // Returns massive with all characters
+        return res.data.results.map(this._transformCharacter); // Return massive of characters
     };
 
     getCharacter = async (id) => {
@@ -24,11 +24,15 @@ class MarvelService {
             `${this._apiBase}characters/${id}?${this._apiKey}`
         );
         return this._transformCharacter(res.data.results[0]);
-    };
+    }; // Return one character
 
     _transformCharacter = (char) => {
         return {
-            name: char.name,
+            id: char.id,
+            name:
+                char.name.length > 20
+                    ? `${char.name.slice(0, 21)}...`
+                    : char.name,
             description: char.description
                 ? `${char.description.slice(0, 210)}...`
                 : "Unfortunately this character has no description",
@@ -36,7 +40,7 @@ class MarvelService {
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
         };
-    };
+    }; // Transform character
 }
 
 export default MarvelService;
