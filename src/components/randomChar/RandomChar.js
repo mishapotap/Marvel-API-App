@@ -106,7 +106,7 @@ const View = ({ char }) => {
                 style={imgStyle}
             />
             <div className="randomchar__info">
-                <p className="randomchar__name">{name}</p>
+                <p className="randomchar__name">{name.length > 20 ? `${name.slice(0, 21)}...` : name}</p>
                 <p className="randomchar__descr">{description}</p>
                 <div className="randomchar__btns">
                     <a href={homepage} className="button button__main">
