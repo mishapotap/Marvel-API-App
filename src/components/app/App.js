@@ -10,7 +10,7 @@ import decoration from "../../resources/img/vision.png";
 const App = () => {
     const [selectedChar, setChar] = useState(null);
 
-    const onSelectedChar = (id) => {
+    const onCharSelected = (id) => {
         setChar(id);
     }; // Установили id выбранного персонажа в state
 
@@ -23,7 +23,7 @@ const App = () => {
                 </ErrorBoundary>
                 <div className="char__content">
                     <ErrorBoundary>
-                        <CharList onSelectedChar={onSelectedChar} />
+                        <CharList onCharSelected={onCharSelected} />
                     </ErrorBoundary>
                     <ErrorBoundary>
                         <CharInfo charId={selectedChar} />
