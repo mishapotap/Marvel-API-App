@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import MarvelService from "../../services/MarvelService";
+import useMarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./charList.scss";
@@ -9,26 +9,21 @@ const CharList = (props) => {
     //props: onCharSelected={onCharSelected}
 
     const [charList, setCharList] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
     const [newItemLoading, setNewItemLoading] = useState(false);
     const [offset, setOffset] = useState(210);
     const [charEnded, setCharEnded] = useState(false);
 
-    const marvelService = new MarvelService(); // Получили новый экземпляр объекта который конструируется при помощи класса MarvelService
+    const { loading, error, getAllCharacters } = useMarvelService(); // Из хука вытащил нужные
 
     useEffect(() => {
-        onRequest();
+        onRequest(offset, true);
     }, []); // Выполнится только при создании компонента
 
-    const onRequest = (offset) => {
-        onCharListLoading();
-        marvelService.getAllCharacters(offset).then(onCharListLoaded).catch(onError);
-    }; // Главная (Получили массив всех персонажей через отступ offset() и установили в state. В конце сделали catch ошибки
-
-    const onCharListLoading = () => {
-        setNewItemLoading(true);
-    }; // Показали что новые герои загружаются (newItemLoading: true) (помощь)
+    const onRequest = (offset, initialCall) => {
+        initialCall ? setNewItemLoading(false) : setNewItemLoading(true);
+        // Показали спиннер когда новые герои загружаются (newItemLoading: true), но только при первом вызове (initialCall: false) (помощь)
+        getAllCharacters(offset).then(onCharListLoaded);
+    }; // Получили массив всех персонажей через отступ offset() и установили в state (Главная)
 
     const onCharListLoaded = (newCharList) => {
         let ended = false;
@@ -36,22 +31,15 @@ const CharList = (props) => {
             ended = true;
         } // Проверка на 9 последних персонажей и запись этого значения в charEnded
         setCharList((charList) => [...charList, ...newCharList]);
-        setLoading(false);
         setNewItemLoading(false);
         setOffset((offset) => offset + 9);
         setCharEnded(ended);
     }; // Устанавливает charList в state + Добавляет новых персонажей в charList при нажатии на кнопку "load more" (помощь)
 
-    const onError = () => {
-        //сделал
-        setLoading(false);
-        setError(true);
-    }; // Устанавливает ошибку в state (помощь)
-
     const itemRefs = useRef([]);
 
     const focusOnItem = (id) => {
-        itemRefs.current.forEach(item => item.classList.remove("char__item_selected"));
+        itemRefs.current.forEach((item) => item.classList.remove("char__item_selected"));
         itemRefs.current[id].classList.add("char__item_selected");
         itemRefs.current[id].focus();
     }; // Фокус на элементе
@@ -94,13 +82,13 @@ const CharList = (props) => {
     const items = renderItems(charList); // В items лежат li с героями
 
     const errorMessage = error ? <ErrorMessage /> : null;
-    const spinner = loading ? <Spinner /> : null;
-    const content = !(loading || error) ? items : null;
+    const spinner = loading && !newItemLoading ? <Spinner /> : null; // Это загрузка но не загрузка новых персонажей
+
     return (
         <div className="char__list">
             {errorMessage}
             {spinner}
-            {content}
+            {items}
             <button
                 disabled={newItemLoading}
                 style={{ display: charEnded ? "none" : "block" }}

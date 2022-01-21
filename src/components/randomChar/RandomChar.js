@@ -8,7 +8,7 @@ import mjolnir from "../../resources/img/mjolnir.png";
 const RandomChar = () => {
     const [char, setChar] = useState({});
 
-    const { loading, error, getCharacter } = useMarvelService(); // Из хука вытащил нужные
+    const { loading, error, getCharacter, clearError } = useMarvelService(); // Из хука вытащил нужные
 
     useEffect(() => {
         updateChar();
@@ -23,6 +23,7 @@ const RandomChar = () => {
     }; // Устанавливает персонажа в state (помощь)
 
     const updateChar = () => {
+        clearError(); // Очистка ошибки перед каждым рандомом персонажа (иначе ее не скинуть если на нее наткнулись)
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000); // Рандомит персонажа
         getCharacter(id).then(onCharLoaded);
     }; // Главный метод (нет catch потому что он внутри хука)

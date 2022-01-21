@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import MarvelService from "../../services/MarvelService";
+import useMarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import Skeleton from "../skeleton/Skeleton";
@@ -12,37 +12,25 @@ const CharInfo = (props) => {
     // props: charId={selectedChar} - id выбранного персонажа
 
     const [char, setChar] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
 
-    const marvelService = new MarvelService(); // Получили новый экземпляр объекта который конструируется при помощи класса MarvelService
+    const { loading, error, getCharacter, clearError } = useMarvelService(); // Из хука вытащил нужные
 
     useEffect(() => {
         updateChar();
-    }, [props.charId]); // Объединил в два
+    }, [props.charId]); // Сработает и при mount и при обновлении персонажа
 
     const updateChar = () => {
-        const {charId} = props;
+        const { charId } = props;
         if (!charId) {
             return;
         }
-        onCharLoading(); // Спиннер пока грузится персонаж
-        marvelService.getCharacter(charId).then(onCharLoaded).catch(onError);
-    }; // Главный метод
-
-    const onCharLoading = () => {
-        setLoading(true);
-    }; // Устанавливает спиннер пока персонаж прогружается (помощь)
+        clearError();
+        getCharacter(charId).then(onCharLoaded);
+    }; // Главный метод (нет спиннера и catch потому что они внутри хука useMarvelService)
 
     const onCharLoaded = (char) => {
         setChar(char);
-        setLoading(false);
-    }; // Устанавливает персонажа в state и убирает спиннер (помощь)
-
-    const onError = () => {
-        setLoading(false);
-        setError(true);
-    }; // Устанавливает ошибку в state (помощь)
+    }; // Устанавливает персонажа в state (помощь)
 
     const skeleton = char || loading || error ? null : <Skeleton />;
     const errorMessage = error ? <ErrorMessage /> : null;
@@ -57,7 +45,7 @@ const CharInfo = (props) => {
         </div>
     );
 };
-// TODO начало View
+
 const View = ({ char }) => {
     const { name, thumbnail, homepage, wiki, description, comics } = char;
 

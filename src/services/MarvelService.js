@@ -33,7 +33,7 @@ const useMarvelService = () => {
         };
     }; // Трансформирует персоанажа в нужный нам формат
 
-    return { loading, error, getAllCharacters, getCharacter };
+    return { loading, error, getAllCharacters, getCharacter, clearError };
 };
 
 export default useMarvelService;

@@ -34,5 +34,5 @@ export const useHttp = () => {
 
     const clearError = useCallback(() => setError(null), []); //clearError перезатирает ошибку
 
-    return { loading, request, error, clearError }; // Возвращаем нужное
+    return { loading, error, request, clearError }; // Возвращаем нужное
 };
