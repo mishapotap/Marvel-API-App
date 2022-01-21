@@ -6,7 +6,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./charList.scss";
 
 const CharList = (props) => {
-    //props: onCharSelected
+    //props: onCharSelected={onCharSelected}
 
     const [charList, setCharList] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -6,28 +6,19 @@ import "./randomChar.scss";
 import mjolnir from "../../resources/img/mjolnir.png";
 
 const RandomChar = () => {
-    
     const [char, setChar] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const marvelService = new MarvelService(); // Получили новый экземпляр объекта который конструируется при помощи класса MarvelService
 
-    // TODO  два метода жц
-
-    useEffect(()=>{
+    useEffect(() => {
         updateChar();
-        // this.timerId = setInterval(this.updateChar, 5000);
+        const timerId = setInterval(updateChar, 5000);
+        return () => {
+            clearInterval(timerId);
+        };
     }, []);
-
-    // componentDidMount() {
-    //     this.updateChar();
-    //     // this.timerId = setInterval(this.updateChar, 5000);
-    // }
-
-    // componentWillUnmount() {
-    //     clearInterval(this.timerId);
-    // }
 
     const onCharLoading = () => {
         setLoading(true);
@@ -46,10 +37,7 @@ const RandomChar = () => {
     const updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000); // Рандомит персонажа
         onCharLoading(); // Спиннер пока грузится персонаж
-        marvelService
-            .getCharacter(id)
-            .then(onCharLoaded)
-            .catch(onError);
+        marvelService.getCharacter(id).then(onCharLoaded).catch(onError);
     }; // Главный метод
 
     const errorMessage = error ? <ErrorMessage /> : null;
@@ -68,29 +56,19 @@ const RandomChar = () => {
                     Do you want to get to know him better?
                 </p>
                 <p className="randomchar__title">Or choose another one</p>
-                <button
-                    onClick={updateChar}
-                    className="button button__main"
-                >
+                <button onClick={updateChar} className="button button__main">
                     <div className="inner">try it</div>
                 </button>
-                <img
-                    src={mjolnir}
-                    alt="mjolnir"
-                    className="randomchar__decoration"
-                />
+                <img src={mjolnir} alt="mjolnir" className="randomchar__decoration" />
             </div>
         </div>
     );
-}
+};
 const View = ({ char }) => {
     const { name, description, thumbnail, homepage, wiki } = char;
 
     let imgStyle = { objectFit: "cover" };
-    if (
-        thumbnail ===
-        "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
-    ) {
+    if (thumbnail === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg") {
         imgStyle = { objectFit: "contain" };
     }
 
@@ -103,7 +81,9 @@ const View = ({ char }) => {
                 style={imgStyle}
             />
             <div className="randomchar__info">
-                <p className="randomchar__name">{name.length > 20 ? `${name.slice(0, 21)}...` : name}</p>
+                <p className="randomchar__name">
+                    {name.length > 20 ? `${name.slice(0, 21)}...` : name}
+                </p>
                 <p className="randomchar__descr">{description}</p>
                 <div className="randomchar__btns">
                     <a href={homepage} className="button button__main">

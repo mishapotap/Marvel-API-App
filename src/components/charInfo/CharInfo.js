@@ -22,12 +22,12 @@ const CharInfo = (props) => {
     }, [props.charId]); // Объединил в два
 
     const updateChar = () => {
-        //TODO
-        if (!props.charId) {
+        const {charId} = props;
+        if (!charId) {
             return;
         }
         onCharLoading(); // Спиннер пока грузится персонаж
-        marvelService.getCharacter(props.charId).then(onCharLoaded).catch(onError);
+        marvelService.getCharacter(charId).then(onCharLoaded).catch(onError);
     }; // Главный метод
 
     const onCharLoading = () => {
