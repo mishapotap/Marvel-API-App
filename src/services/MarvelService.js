@@ -53,7 +53,7 @@ const useMarvelService = () => {
                 : "No information about the number of pages",
             thumbnail: comics.thumbnail.path + "." + comics.thumbnail.extension,
             language: comics.textObjects.language || "en-us",
-            price: comics.prices.price,
+            price: comics.prices[0].price === 0 ? "Price not found" : `${comics.prices[0].price}$`,
         };
     }; // Трансформирует комиксы в нужный нам формат
 

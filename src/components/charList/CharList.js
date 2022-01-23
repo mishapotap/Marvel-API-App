@@ -19,9 +19,9 @@ const CharList = (props) => {
         onRequest(offset, true);
     }, []); // Выполнится только при создании компонента
 
-    const onRequest = (offset, initialCall) => {
-        initialCall ? setNewItemLoading(false) : setNewItemLoading(true);
-        // Показали спиннер когда новые герои загружаются (newItemLoading: true), но только при первом вызове (initialCall: false) (помощь)
+    const onRequest = (offset, firstCall) => {
+        firstCall ? setNewItemLoading(false) : setNewItemLoading(true);
+        // Показали спиннер когда новые герои загружаются (newItemLoading: true), но только при первом вызове (firstCall: false) (помощь)
         getAllCharacters(offset).then(onCharListLoaded);
     }; // Получили массив всех персонажей через отступ offset() и установили в state (Главная)
 
@@ -77,7 +77,7 @@ const CharList = (props) => {
             );
         });
         return <ul className="char__grid">{items}</ul>;
-    } // Главный метод для оптимизации чтобы не помещать его в рендер
+    } // Главный метод для оптимизации чтобы не помещать его в финальный return
 
     const items = renderItems(charList); // В items лежат li с героями
 
