@@ -17,17 +17,17 @@ const useMarvelService = () => {
     const getCharacter = async (id) => {
         const res = await request(`${_apiBase}characters/${id}?${_apiKey}`);
         return _transformCharacter(res.data.results[0]);
-    }; // Возвращает одного персонажа
+    }; // Возвращает одного персонажа по id
 
     const getAllComics = async (offset = 0) => {
         const res = await request(`${_apiBase}comics?limit=8&offset=${offset}&${_apiKey}`);
         return res.data.results.map(_transformComics);
     }; // Вовзращает массив комиксов
 
-    const getComics = async (id) => {
+    const getComic = async (id) => {
         const res = await request(`${_apiBase}comics/${id}?${_apiKey}`);
         return _transformComics(res.data.results[0]);
-    }; // Вовзращает массив комиксов
+    }; // Вовзращает один комикс по id
 
     const _transformCharacter = (char) => {
         return {
@@ -57,7 +57,7 @@ const useMarvelService = () => {
         };
     }; // Трансформирует комиксы в нужный нам формат
 
-    return { loading, error, getAllCharacters, getCharacter, clearError, getAllComics };
+    return { loading, error, getAllCharacters, getCharacter, clearError, getAllComics, getComic };
 };
 
 export default useMarvelService;
