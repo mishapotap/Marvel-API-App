@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import PropTypes from "prop-types";
 import useMarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner";
@@ -55,28 +56,33 @@ const CharList = (props) => {
             } // Центрирование картинки not available
 
             return (
-                <li
-                    className="char__item"
-                    tabIndex={0}
-                    ref={(elem) => (itemRefs.current[i] = elem)}
-                    key={item.id}
-                    onClick={() => {
-                        props.onCharSelected(item.id);
-                        focusOnItem(i);
-                    }}
-                    onKeyPress={(e) => {
-                        if (e.key === " " || e.key === "Enter") {
+                <CSSTransition key={item.id} timeout={1500} classNames={"char__item"}>
+                    <li
+                        className="char__item"
+                        tabIndex={0}
+                        ref={(elem) => (itemRefs.current[i] = elem)}
+                        onClick={() => {
                             props.onCharSelected(item.id);
                             focusOnItem(i);
-                        }
-                    }}
-                >
-                    <img src={item.thumbnail} alt={item.name} style={imgStyle} />
-                    <div className="char__name">{item.name}</div>
-                </li>
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === " " || e.key === "Enter") {
+                                props.onCharSelected(item.id);
+                                focusOnItem(i);
+                            }
+                        }}
+                    >
+                        <img src={item.thumbnail} alt={item.name} style={imgStyle} />
+                        <div className="char__name">{item.name}</div>
+                    </li>
+                </CSSTransition>
             );
         });
-        return <ul className="char__grid">{items}</ul>;
+        return (
+            <ul className="char__grid">
+                <TransitionGroup component={null}>{items}</TransitionGroup>
+            </ul>
+        );
     } // Главный метод для оптимизации чтобы не помещать его в финальный return
 
     const items = renderItems(charList); // В items лежат li с героями
