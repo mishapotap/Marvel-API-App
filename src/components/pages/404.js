@@ -18,7 +18,7 @@ const Page404 = () => {
                     textTransform: "uppercase",
                     cursor: "cointer",
                 }}
-                to="/"
+                to="/characters"
             >
                 Back to main page
             </Link>

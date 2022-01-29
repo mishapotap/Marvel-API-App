@@ -56,7 +56,7 @@ const CharList = (props) => {
             } // Центрирование картинки not available
 
             return (
-                <CSSTransition key={item.id} timeout={1500} classNames={"char__item"}>
+                <CSSTransition key={item.id} timeout={1000} classNames={"char__item"}>
                     <li
                         className="char__item"
                         tabIndex={0}

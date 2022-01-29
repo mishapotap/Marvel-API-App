@@ -6,6 +6,7 @@ const MainPage = lazy(() => import("../pages/MainPage"));
 const Page404 = lazy(() => import("../pages/404"));
 const ComicsPage = lazy(() => import("../pages/ComicsPage"));
 const SingleComicPage = lazy(() => import("../pages/SingleComicPage"));
+const SingleCharPage = lazy(() => import("../pages/SingleCharPage"));
 // Динамические импорты пишем в конце
 
 const App = () => {
@@ -14,11 +15,12 @@ const App = () => {
             <div className="app">
                 <AppHeader />
                 <main>
-                    <Suspense fallback={<Spinner/>}>
+                    <Suspense fallback={<Spinner />}>
                         <Routes>
-                            <Route path="/" element={<MainPage />} />
+                            <Route path="/characters" element={<MainPage />} />
                             <Route path="/comics" element={<ComicsPage />} />
                             <Route path="/comics/:comicId" element={<SingleComicPage />} />
+                            <Route path="/characters/:charId" element={<SingleCharPage />} />
                             <Route path="*" element={<Page404 />} />
                         </Routes>
                     </Suspense>

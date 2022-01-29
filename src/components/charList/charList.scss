@@ -33,14 +33,14 @@
         }
         &-enter-active {
             opacity: 1;
-            transition: opacity 1500ms ease-in;
+            transition: opacity 1000ms ease-in;
         }
         &-exit {
             opacity: 1;
         }
         &-exit-active {
             opacity: 0;
-            transition: opacity 500ms ease-in;
+            transition: opacity 1000ms ease-in;
         }
         &_selected {
             box-shadow: 0 5px 20px $main-color;
