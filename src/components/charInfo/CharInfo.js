@@ -17,6 +17,7 @@ const CharInfo = (props) => {
 
     useEffect(() => {
         updateChar();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.charId]); // Сработает и при mount и при обновлении персонажа
 
     const updateChar = () => {

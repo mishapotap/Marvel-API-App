@@ -1,10 +1,11 @@
+import { useState } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
 import CharSearchForm from "../charSearchForm/CharSearchForm";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import decoration from "../../resources/img/vision.png";
-import { useState } from "react";
 
 const MainPage = () => {
     const [selectedChar, setChar] = useState(null);
@@ -15,6 +16,12 @@ const MainPage = () => {
 
     return (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <meta name="description" content="Marvel information portal" />
+                    <title>Marvel information portal</title>
+                </Helmet>
+            </HelmetProvider>
             <ErrorBoundary>
                 <RandomChar />
             </ErrorBoundary>

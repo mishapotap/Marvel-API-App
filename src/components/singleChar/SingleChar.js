@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import useMarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
@@ -13,6 +14,7 @@ const SingleChar = () => {
 
     useEffect(() => {
         updateChar();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [charId]);
 
     const updateChar = () => {
@@ -43,6 +45,12 @@ const View = ({ char }) => {
     const { name, thumbnail, description } = char;
     return (
         <>
+            <HelmetProvider>
+                <Helmet>
+                    <meta name="description" content={`Information about ${name}`} />
+                    <title>{`${name} page`}</title>
+                </Helmet>
+            </HelmetProvider>
             <AppBanner />
             <div className="single-comic">
                 <img src={thumbnail} alt={name} className="single-comic__char-img" />

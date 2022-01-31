@@ -15,6 +15,7 @@ const ComicsList = () => {
 
     useEffect(() => {
         onRequest(offset, true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Выполнится только при создании компонента
 
     const onRequest = (offset, firstCall) => {
