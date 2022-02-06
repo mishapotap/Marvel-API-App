@@ -5,8 +5,8 @@
     "main.css": "/Marvel-API-App/static/css/main.f51e0791.chunk.css",
     "main.js": "/Marvel-API-App/static/js/main.36f4a1d8.chunk.js",
     "main.js.map": "/Marvel-API-App/static/js/main.36f4a1d8.chunk.js.map",
-    "runtime-main.js": "/Marvel-API-App/static/js/runtime-main.99a39425.js",
-    "runtime-main.js.map": "/Marvel-API-App/static/js/runtime-main.99a39425.js.map",
+    "runtime-main.js": "/Marvel-API-App/static/js/runtime-main.710a7e49.js",
+    "runtime-main.js.map": "/Marvel-API-App/static/js/runtime-main.710a7e49.js.map",
     "static/js/3.96266f96.chunk.js": "/Marvel-API-App/static/js/3.96266f96.chunk.js",
     "static/js/3.96266f96.chunk.js.map": "/Marvel-API-App/static/js/3.96266f96.chunk.js.map",
     "static/js/4.0dcad0ab.chunk.js": "/Marvel-API-App/static/js/4.0dcad0ab.chunk.js",
@@ -18,8 +18,8 @@
     "static/js/6.ad3d1760.chunk.js": "/Marvel-API-App/static/js/6.ad3d1760.chunk.js",
     "static/js/6.ad3d1760.chunk.js.map": "/Marvel-API-App/static/js/6.ad3d1760.chunk.js.map",
     "static/css/7.079ddb99.chunk.css": "/Marvel-API-App/static/css/7.079ddb99.chunk.css",
-    "static/js/7.33aa54f5.chunk.js": "/Marvel-API-App/static/js/7.33aa54f5.chunk.js",
-    "static/js/7.33aa54f5.chunk.js.map": "/Marvel-API-App/static/js/7.33aa54f5.chunk.js.map",
+    "static/js/7.781589f2.chunk.js": "/Marvel-API-App/static/js/7.781589f2.chunk.js",
+    "static/js/7.781589f2.chunk.js.map": "/Marvel-API-App/static/js/7.781589f2.chunk.js.map",
     "static/css/8.76bf52ba.chunk.css": "/Marvel-API-App/static/css/8.76bf52ba.chunk.css",
     "static/js/8.071aa8e6.chunk.js": "/Marvel-API-App/static/js/8.071aa8e6.chunk.js",
     "static/js/8.071aa8e6.chunk.js.map": "/Marvel-API-App/static/js/8.071aa8e6.chunk.js.map",
@@ -41,7 +41,7 @@
     "static/media/vision.067d4ae1.png": "/Marvel-API-App/static/media/vision.067d4ae1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.99a39425.js",
+    "static/js/runtime-main.710a7e49.js",
     "static/js/4.0dcad0ab.chunk.js",
     "static/css/main.f51e0791.chunk.css",
     "static/js/main.36f4a1d8.chunk.js"
