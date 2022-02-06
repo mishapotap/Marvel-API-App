@@ -1,3 +1,33 @@
+# mishapotap.github.io
+### This project is using Node v16
+
+Hi! My name is Mikhail and im a beginner software developer from Russia
+This is one of my pet projects: SPA based on "Marvel API"
+
+## Warning! Sometimes there can be a 404 error on a main page. 
+It's not my fault, it happens because RandomChar component sometimes get a hero which is not exist in "Marvel API"
+So just refresh your page if you got it.
+
+_______________________
+#### Technologies stack i used in this project:
+
++ React
++ React-router-dom
++ Prop-types
++ Formik
++ Yup
++ React-helmet-async
+
+#### "Good manners" things that i used:
+
++ Custom hooks
++ Lazy loading components
++ Error boundaries
++ Skeletons
++ Spinners
++ ErrorMessages
+
+_________________________
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

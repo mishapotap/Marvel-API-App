@@ -12,10 +12,10 @@ const RandomChar = () => {
 
     useEffect(() => {
         updateChar();
-        // const timerId = setInterval(updateChar, 5000);
-        // return () => {
-        //     clearInterval(timerId);
-        // };
+        const timerId = setInterval(updateChar, 5000);
+        return () => {
+            clearInterval(timerId);
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
