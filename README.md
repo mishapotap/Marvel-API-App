@@ -4,9 +4,11 @@
 Hi! My name is Mikhail and im a beginner software developer from Russia
 This is one of my pet projects: SPA based on "Marvel API"
 
-## Warning! Sometimes there can be a 404 error on a main page. 
-It's not my fault, it happens because RandomChar component sometimes get a hero which is not exist in "Marvel API"
-So just refresh your page if you got it.
+_______________________
+### Find character by name
+
+To find character by name you should type full valid database name like: Thor
+And then press the "To page" button
 
 _______________________
 #### Technologies stack i used in this project:
