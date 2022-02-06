@@ -3,8 +3,8 @@
     "static/js/0.1872e9ca.chunk.js": "/Marvel-API-App/static/js/0.1872e9ca.chunk.js",
     "static/js/0.1872e9ca.chunk.js.map": "/Marvel-API-App/static/js/0.1872e9ca.chunk.js.map",
     "main.css": "/Marvel-API-App/static/css/main.f51e0791.chunk.css",
-    "main.js": "/Marvel-API-App/static/js/main.a55d19aa.chunk.js",
-    "main.js.map": "/Marvel-API-App/static/js/main.a55d19aa.chunk.js.map",
+    "main.js": "/Marvel-API-App/static/js/main.ffb049f8.chunk.js",
+    "main.js.map": "/Marvel-API-App/static/js/main.ffb049f8.chunk.js.map",
     "runtime-main.js": "/Marvel-API-App/static/js/runtime-main.1de2a76e.js",
     "runtime-main.js.map": "/Marvel-API-App/static/js/runtime-main.1de2a76e.js.map",
     "static/js/3.96266f96.chunk.js": "/Marvel-API-App/static/js/3.96266f96.chunk.js",
@@ -44,6 +44,6 @@
     "static/js/runtime-main.1de2a76e.js",
     "static/js/4.0dcad0ab.chunk.js",
     "static/css/main.f51e0791.chunk.css",
-    "static/js/main.a55d19aa.chunk.js"
+    "static/js/main.ffb049f8.chunk.js"
   ]
 }
