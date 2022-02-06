@@ -3,10 +3,10 @@
     "static/js/0.1872e9ca.chunk.js": "/Marvel-API-App/static/js/0.1872e9ca.chunk.js",
     "static/js/0.1872e9ca.chunk.js.map": "/Marvel-API-App/static/js/0.1872e9ca.chunk.js.map",
     "main.css": "/Marvel-API-App/static/css/main.f51e0791.chunk.css",
-    "main.js": "/Marvel-API-App/static/js/main.89f7d2d3.chunk.js",
-    "main.js.map": "/Marvel-API-App/static/js/main.89f7d2d3.chunk.js.map",
-    "runtime-main.js": "/Marvel-API-App/static/js/runtime-main.15780939.js",
-    "runtime-main.js.map": "/Marvel-API-App/static/js/runtime-main.15780939.js.map",
+    "main.js": "/Marvel-API-App/static/js/main.36f4a1d8.chunk.js",
+    "main.js.map": "/Marvel-API-App/static/js/main.36f4a1d8.chunk.js.map",
+    "runtime-main.js": "/Marvel-API-App/static/js/runtime-main.99a39425.js",
+    "runtime-main.js.map": "/Marvel-API-App/static/js/runtime-main.99a39425.js.map",
     "static/js/3.96266f96.chunk.js": "/Marvel-API-App/static/js/3.96266f96.chunk.js",
     "static/js/3.96266f96.chunk.js.map": "/Marvel-API-App/static/js/3.96266f96.chunk.js.map",
     "static/js/4.0dcad0ab.chunk.js": "/Marvel-API-App/static/js/4.0dcad0ab.chunk.js",
@@ -23,8 +23,8 @@
     "static/css/8.76bf52ba.chunk.css": "/Marvel-API-App/static/css/8.76bf52ba.chunk.css",
     "static/js/8.071aa8e6.chunk.js": "/Marvel-API-App/static/js/8.071aa8e6.chunk.js",
     "static/js/8.071aa8e6.chunk.js.map": "/Marvel-API-App/static/js/8.071aa8e6.chunk.js.map",
-    "static/js/9.224e8b02.chunk.js": "/Marvel-API-App/static/js/9.224e8b02.chunk.js",
-    "static/js/9.224e8b02.chunk.js.map": "/Marvel-API-App/static/js/9.224e8b02.chunk.js.map",
+    "static/js/9.dfbfad00.chunk.js": "/Marvel-API-App/static/js/9.dfbfad00.chunk.js",
+    "static/js/9.dfbfad00.chunk.js.map": "/Marvel-API-App/static/js/9.dfbfad00.chunk.js.map",
     "index.html": "/Marvel-API-App/index.html",
     "static/css/5.76bafc14.chunk.css.map": "/Marvel-API-App/static/css/5.76bafc14.chunk.css.map",
     "static/css/6.6f619b6a.chunk.css.map": "/Marvel-API-App/static/css/6.6f619b6a.chunk.css.map",
@@ -41,9 +41,9 @@
     "static/media/vision.067d4ae1.png": "/Marvel-API-App/static/media/vision.067d4ae1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.15780939.js",
+    "static/js/runtime-main.99a39425.js",
     "static/js/4.0dcad0ab.chunk.js",
     "static/css/main.f51e0791.chunk.css",
-    "static/js/main.89f7d2d3.chunk.js"
+    "static/js/main.36f4a1d8.chunk.js"
   ]
 }
